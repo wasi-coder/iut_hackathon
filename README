@@ -1,0 +1,137 @@
+TOKEN and CLIENT_ID diye rakci toke ogula add kore just eta run korish node src/index.js
+
+Discord Bot Setup
+Prerequisites
+
+Install the following software:
+
+Node.js (LTS version)
+npm (installed with Node.js)
+A Discord account
+A Discord server where the bot can be invited
+
+Verify installation:
+
+node -v
+npm -v
+Installation
+
+Clone the repository:
+
+git clone <repository-url>
+cd discord-bot
+
+Install dependencies:
+
+npm install
+Discord Bot Configuration
+
+Create a Discord application:
+
+Go to https://discord.com/developers/applications
+Click New Application
+Give it a name
+Go to Bot
+Click Add Bot
+Copy the Bot Token
+
+Create a .env file in the project root.
+
+Example:
+
+TOKEN=YOUR_DISCORD_BOT_TOKEN
+CLIENT_ID=YOUR_CLIENT_ID
+API_URL=http://localhost:5000
+
+Replace the values with your own.
+
+Enable Required Intents
+
+In the Discord Developer Portal:
+
+Application
+    ↓
+Bot
+    ↓
+Privileged Gateway Intents
+
+Enable:
+
+Message Content Intent
+
+Save the changes.
+
+Invite the Bot
+
+In the Discord Developer Portal:
+
+OAuth2
+    ↓
+URL Generator
+
+Select:
+
+Scopes
+
+bot
+
+Permissions
+
+View Channels
+Send Messages
+Read Message History
+
+Open the generated URL and invite the bot to your Discord server.
+
+Running the Bot
+
+Start the bot:
+
+node src/index.js
+
+If everything is configured correctly, you should see:
+
+IUT_Hackathon#1970 is online
+Available Commands
+!status
+
+Shows the overall status of devices.
+
+!room <room_name>
+
+Shows the status of a specific room.
+
+Example:
+
+!room drawing
+!usage
+
+Shows current power usage statistics.
+
+Backend Integration
+
+Currently the bot uses mock data.
+
+To connect to the backend:
+
+Start the backend server.
+Update the API_URL in the .env file.
+Replace the mock implementation in:
+src/services/api.js
+
+with the actual API endpoints.
+
+No changes are required in the command files.
+
+Project Structure
+discord-bot/
+│
+├── src/
+│   ├── commands/
+│   ├── services/
+│   ├── events/
+│   └── index.js
+│
+├── .env.example
+├── package.json
+└── README.md
